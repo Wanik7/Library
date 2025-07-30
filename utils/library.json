@@ -1,0 +1,28 @@
+[
+  {
+    "title": "1984",
+    "author": "George Orwell",
+    "year": 1949,
+    "genres": [
+      "dystopia",
+      "science fiction"
+    ]
+  },
+  {
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "year": 1937,
+    "genres": [
+      "fantasy",
+      "adventure"
+    ]
+  },
+  {
+    "title": "The Lord of the Rings",
+    "author": "J.R.R. Tolkien",
+    "year": 1954,
+    "genres": [
+      "fantasy"
+    ]
+  }
+]
