@@ -89,8 +89,8 @@ func FindBooksByAuthor(author string) ([]Book, error) {
 func DeleteBookByTitle(title string) error {
 	books, err := LoadBooks()
 	if err != nil {
-			return errors.New(err.Error())
-		}
+		return errors.New(err.Error())
+	}
 
 	var newBooks []Book
 	for _, v := range books {
@@ -107,4 +107,25 @@ func DeleteBookByTitle(title string) error {
 
 	fmt.Println("The book was removed")
 	return nil
+}
+
+func FindBookByGenre(genre string) ([]Book, error) {
+	books, err := LoadBooks()
+	if err != nil {
+		return []Book{}, errors.New(err.Error())
+	}
+
+	var newBooks []Book
+	for _, book := range books {
+		for _, genres := range book.Genres {
+			if genres == genre {
+				newBooks = append(newBooks, book)
+			}
+		}
+	}
+	if len(newBooks) == 0 {
+		return []Book{}, errors.New("there is no book with this genre")
+	}
+
+	return newBooks, nil
 }

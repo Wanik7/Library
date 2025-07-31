@@ -22,7 +22,7 @@ func main() {
 	for _, book := range books {
 		var genres string
 		for _, genre := range book.Genres {
-			genres = genre + ", "
+			genres += genre + ", "
 		}
 		genres = strings.TrimRight(genres, ", ")
 		fmt.Printf("Title: %s; Author: %s; Release year: %d; Genres: %s\n", book.Title, book.Author, book.Year, genres)
@@ -36,7 +36,7 @@ func main() {
 	for _, book := range tolkiensBooks {
 		var genres string
 		for _, genre := range book.Genres {
-			genres = genre + ", "
+			genres += genre + ", "
 		}
 		genres = strings.TrimRight(genres, ", ")
 		fmt.Printf("Title: %s; Author: %s; Release year: %d; Genres: %s\n", book.Title, book.Author, book.Year, genres)
@@ -47,4 +47,19 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error: %+v", err)
 	}
+
+	// if you want to find book by certain genre
+	booksByGenre, err := utils.FindBookByGenre("fantasy")
+	if err != nil {
+		log.Fatalf("Error: %+v", err)
+	}
+	for _, book := range booksByGenre {
+		var genres string
+		for _, genre := range book.Genres {
+			genres += genre + ", "
+		}
+		genres = strings.TrimRight(genres, ", ")
+		fmt.Printf("Title: %s; Author: %s; Release year: %d; Genres: %s\n", book.Title, book.Author, book.Year, genres)
+	}
+	
 }
